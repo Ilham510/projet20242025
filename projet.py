@@ -41,3 +41,17 @@ def calculer_pourcentages_par_espece(sequences):
         resultats[espece] = calculer_pourcentages(joint_sequence)
     return resultats
 
+def generer_camembert(data, titre):
+    """Génère un graphique en camembert pour les pourcentages donnés."""
+    labels = list(data.keys())
+    sizes = list(data.values())
+    plt.figure(figsize=(6, 6))
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+    plt.title(titre)
+    plt.show()
+
+def generer_tous_les_camemberts(resultats):
+    """Génère des camemberts pour chaque espèce."""
+    for espece, data in resultats.items():
+        generer_camembert(data, f'Composition des bases - {espece}')
+
