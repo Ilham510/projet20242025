@@ -22,3 +22,22 @@ def extraire_sequences(mirna_data, species_list):
         if espece in sequences:
             sequences[espece].append(sequence)
     return sequences
+
+def calculer_pourcentages(sequence):
+    """Calcule le pourcentage de A, C, G, U dans une séquence."""
+    total = len(sequence)
+    return {
+        'A': sequence.count('A') / total * 100,
+        'C': sequence.count('C') / total * 100,
+        'G': sequence.count('G') / total * 100,
+        'U': sequence.count('U') / total * 100
+    }
+
+def calculer_pourcentages_par_espece(sequences):
+    """Calcule les pourcentages pour chaque espèce."""
+    resultats = {}
+    for espece, seqs in sequences.items():
+        joint_sequence = ''.join(seqs)
+        resultats[espece] = calculer_pourcentages(joint_sequence)
+    return resultats
+
