@@ -55,3 +55,18 @@ def generer_tous_les_camemberts(resultats):
     for espece, data in resultats.items():
         generer_camembert(data, f'Composition des bases - {espece}')
 
+def main():
+    species_file = 'species.txt'
+    mirna_file = 'mirna.txt'
+
+    species = lire_fichier_species(species_file)
+    mirna_data = lire_fichier_mirna(mirna_file)
+
+    sequences = extraire_sequences(mirna_data, species)
+    resultats = calculer_pourcentages_par_espece(sequences)
+    
+    generer_tous_les_camemberts(resultats)
+
+if __name__ == '__main__':
+    main()
+
