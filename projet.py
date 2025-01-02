@@ -10,3 +10,15 @@ def lire_fichier_mirna(filepath):
     """Lit et retourne les lignes du fichier mirna."""
     with open(filepath, 'r') as file:
         return file.readlines()
+
+def extraire_sequences(mirna_data, species_list):
+    """Extrait les séquences des espèces spécifiées."""
+    sequences = {species: [] for species in species_list}
+    for line in mirna_data:
+        parts = line.split()
+        if len(parts) < 9:  # Pour éviter les lignes mal formatées
+            continue
+        espece, sequence = parts[4], parts[8]
+        if espece in sequences:
+            sequences[espece].append(sequence)
+    return sequences
