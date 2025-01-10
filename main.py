@@ -19,14 +19,14 @@ def enregistrer_noms_especes(noms_especes, output_filepath):
             file.write(espece + '\n')
 
 # Chemin des fichiers
-fichier_mirna = 'mirna.txt'
-fichier_output = 'species.txt'
+# fichier_mirna = 'mirna.txt'
+# fichier_output = 'species.txt'
 
 # Extraction et enregistrement des noms d'espèces
-noms_especes = extraire_noms_especes(fichier_mirna)
-enregistrer_noms_especes(noms_especes, fichier_output)
+# noms_especes = extraire_noms_especes(fichier_mirna)
+# enregistrer_noms_especes(noms_especes, fichier_output)
 
-print(f"Extraction terminée. Les noms d'espèces ont été enregistrés dans '{fichier_output}'.")
+# print(f"Extraction terminée. Les noms d'espèces ont été enregistrés dans '{fichier_output}'.")
 
 def lire_fichier_species(filepath):
     """Lit les noms d'espèces à partir d'un fichier."""
